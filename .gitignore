@@ -1,2 +1,3 @@
-IgnoreFolder
 node_modules
+ignoreFolder
+.env
