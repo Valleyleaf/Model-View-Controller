@@ -1,40 +1,32 @@
-const User = require('./User');
+const BlogPosts = require('./blogPosts');
+const Users = require('./Users');
+const Comments = require('./Comments');
 
+Users.hasMany(BlogPosts, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
 
-//define association
-// User.hasMany(MenuItem, {
-//     foreignKey: 'user_id',
-// });
-// User.hasMany(Bookings, {
-//     foreignKey: 'user_id',
-// });
-// Bookings.belongsTo(User, {
-//     foreignKey: 'id',
-// });
-// MenuItem.belongsTo(User, {
-//     foreignKey:'user_id',
-// });
+BlogPosts.belongsTo(Users, {
+    foreignKey: 'user_id',
+});
 
-// User.hasMany(Comment, {
-// foreignKey:'user_id',
-// });
-// Comment.belongsTo(User,{
-//     foreignKey:'user_id',
-// });
+Users.hasMany(Comments, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
 
-// MenuItem.belongsTo(Restaurants, {
-//     foreignKey:'restaurant_id',
-// });
-// Restaurants.hasMany(MenuItem,{
-//     foreignKey:'restaurant_id',
-// });
-   
-// MenuItem.hasMany(Comment,{
-//     foreignKey:'menu_item_id',
-// });
-// Comment.belongsTo(MenuItem, {
-//     foreignKey:'menu_item_id',
-// });
+Comments.belongsTo(Users, {
+    foreignKey: 'user_id',
+});
 
+BlogPosts.hasMany(Comments, {
+    foreignKey: 'blogpost_id',
+    onDelete: 'CASCADE',
+});
 
-module.exports = {};
+Comments.belongsTo(BlogPosts, {
+    foreignKey: 'blogpost_id',
+});
+
+module.exports = { BlogPosts, Users, Comments };
