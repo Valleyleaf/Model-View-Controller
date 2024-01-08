@@ -1,24 +1,33 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Potluck Party</title>
+  <title>Tech9000</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="flex-container-row">
+        <div class="flex-container-columns">
       <h1>
-        Tech Blog 9000
+        Tech 9000
       </h1>
+      <p>Masters in Tech & Computing</p>
+      </div>
+      <button class="keepRight">Sign In</button>
     </header>
-      <main class="container container-fluid mt-5">
-
+    <nav class="flex-container-row">
+        <button>Home</button>
+        <button>Dashboard</button>
+        {{!-- If statement here to dictate login/logout --}}
+        <button>Login</button>
+    </nav>
+      <main class="">
      {{{ body }}}
       </main>
   </div>
-  <footer>
+  <footer class="keepBottom">
         footer goes here
   </footer>
   </body>
